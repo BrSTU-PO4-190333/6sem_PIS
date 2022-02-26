@@ -1,0 +1,6 @@
+tmp
+www/html
+
+# Vagrant
+.vagrant
+*.log
