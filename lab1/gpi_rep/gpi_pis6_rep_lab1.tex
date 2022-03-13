@@ -1,0 +1,118 @@
+\documentclass[12pt, a4paper, simple]{eskdtext}
+
+\usepackage{hyperref}
+\usepackage{env}
+\usepackage{_sty/gpi_lst}
+\usepackage{_sty/gpi_toc}
+\usepackage{_sty/gpi_t}
+\usepackage{_sty/gpi_p}
+\usepackage{_sty/gpi_u}
+
+% Код
+% \ESKDletter{О}{Л}{Р}
+% \def \gpiDocTypeNum {81}
+% \def \gpiDocVer {00}
+% \def \gpiCode {\ESKDtheLetterI\ESKDtheLetterII\ESKDtheLetterIII.\gpiStudentGroupName\gpiStudentGroupNum.\gpiStudentCard-0\gpiDocNum~\gpiDocTypeNum~\gpiDocVer}
+
+\def \gpiDocTopic {Отчёт лабораторной работы №\gpiDocNum}
+
+% Графа 1 (наименование изделия/документа)
+% \ESKDcolumnI {\ESKDfontII \gpiTopic \\ \gpiDocTopic}
+
+% Графа 2 (обозначение документа)
+% \ESKDsignature {\gpiCode}
+
+% Графа 9 (наименование или различительный индекс предприятия) задает команда
+% \ESKDcolumnIX {\gpiDepartment}
+
+% Графа 11 (фамилии лиц, подписывающих документ) задают команды
+% \ESKDcolumnXIfI {\gpiStudentSurname}
+% \ESKDcolumnXIfII {\gpiTeacherSurname}
+% \ESKDcolumnXIfV {\gpiTeacherSurname}
+
+\begin{document}
+    \input{_tex/gpi_rep_titlePage.tex}
+    \ESKDstyle{empty}
+    \begin{center}
+        \textbf{\gpiDocTopic}
+    \end{center}
+
+    % = = = = = = = =
+    \paragraph{} \textbf{Тема}: <<\gpiTopicRep>>
+
+    \paragraph{} \textbf{Цель}: Познакомиться с предметной областью,
+    реализовать минимальный функционал без детального проектирования согласно паттерну <<сценарий транзакции>>.
+
+    \paragraph{} \textbf{Что нужно сделать}:
+
+    Определить предметную область согласно варианту (или предложить свою).
+    Реализовать несколько действий в рамках выбранной предметнойьобласти согласно паттерну <<сценарий транзакции>>.
+    Не требуется полноценное работоспособное приложение, достаточно пары функций.
+    Разработать сценарий транзакция для своей темы.
+
+    \paragraph{} \textbf{Исходный код}: 
+
+    % \lstinputlisting[]
+    %     {../gpi_src/docker-compose.yml}
+
+    % \lstinputlisting[]
+    %     {../gpi_src/Dockerfile}
+
+    \lstinputlisting[language=sql]
+        {../gpi_src/docker-entrypoint-initdb.d/pis6_ab.sql}
+
+    \lstinputlisting[language=php]
+        {../gpi_src/var/www/html/index.php}
+
+    \lstinputlisting[language=php]
+        {../gpi_src/var/www/html/html/head.php}
+
+    \lstinputlisting[language=php]
+        {../gpi_src/var/www/html/scripts/connect.php}
+        
+    \lstinputlisting[language=php]
+            {../gpi_src/var/www/html/scripts/env.php}
+        
+    \lstinputlisting[language=php]
+        {../gpi_src/var/www/html/scripts/create.php}
+
+    \lstinputlisting[language=php]
+        {../gpi_src/var/www/html/scripts/read.php}
+
+    \lstinputlisting[language=php]
+        {../gpi_src/var/www/html/scripts/delete.php}
+
+    \paragraph{} \textbf{Вывод}:
+    Создали сценарий транзакции создание данных,
+    создали сценарий транзакций чтения данных,
+    создали сценарий транзакций удаления данных.
+
+    Сценарий действия, трактуется как бизнес-транзакция: одна процедура на одно действие бизнес-логики
+    Может быть ООП, с подпрограммами, но всё равно - читаемый большой кусок кода.
+
+    Плюсы:
+    удобная процедурная модель;
+    всем понятно;
+    определяет границы транзакции;
+    всё в одном.
+
+    Минусы:
+    слишком <<всё в одном>>;
+    повторение, дублирование кода;
+    приложение без отчетливой структуры;
+    нормально только при небольшой сложности бизнес-логики
+
+    % = = = = = = = =
+    % \newpage
+    % \addcontentsline{toc}{section}{Список использованных источников}
+    % \section*{Список использованных источников}
+    \paragraph{} \textbf{Список использованных источников}:
+
+    \begin{enumerate}
+        \item[1.] transaction script сценарий транзакции php - YouTube
+        - [Электронный ресурс]
+        Режим доступа: \url{https://www.youtube.com/watch?v=7K-2SpMhdyU}.
+        Дата~доступа:~26.02.2022.
+    \end{enumerate}
+    \newpage
+\end{document}
