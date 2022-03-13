@@ -23,8 +23,8 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
-      - ./initdb.d:/docker-entrypoint-initdb.d
-      - ./etc/mysql/conf.d:/etc/mysql/conf.d
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+      # - ./etc/mysql/conf.d:/etc/mysql/conf.d
       - ./var/lib/mysql:/var/lib/mysql
     networks:
       - default
